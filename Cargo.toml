@@ -1,0 +1,17 @@
+[package]
+name    = "noises"
+version = "0.0.0"
+license = "MIT"
+
+authors     = ["Stephen Touset <stephen@touset.org>"]
+description = "Implementation of Trevor Perrin's noise protocol framework"
+
+homepage      = "https://github.com/stouset/noise"
+repository    = "https://github.com/stouset/noise"
+documentation = "https://stouset.github.io/noise"
+readme        = "README.md"
+
+keywords = [ "crypto", "cryptography", "security", "socket", "transport" ]
+
+[dependencies]
+libc = '~0.1'
