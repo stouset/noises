@@ -90,6 +90,15 @@
 <span id="48">48</span>
 <span id="49">49</span>
 <span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
 </pre><pre class='rust '>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>Cipher</span>, <span class='ident'>Key</span>, <span class='ident'>Nonce</span>, <span class='ident'>Digest</span>};
 
@@ -127,6 +136,15 @@
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_2</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;test\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;test&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x88\xcd\x21\x08\xb5\x34\x7d\x97\x3c\xf3\x9c\xdf\x90\x53\xd7\xdd\x42\x70\x48\x76\xd8\xc9\xa9\xbd\x8e\x2d\x16\x82\x59\xd3\xdd\xf7&quot;</span>;
+
+        <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_3</span>() {
         <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x4f\xc8\x00\x33\x47\xd0\x33\xf5\xd6\x1b\xbd\x88\xab\x78\xcf\xab\x0d\x2f\xe5\x4e\xd6\x85\xd3\x6e\x86\xfa\x76\x3e\x6c\xa0\xf1\x19&quot;</span>;
         <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;\x50\x8d\xa3\x0a\xe2\x28\xc7\x7e\xd5\x90\xec\xc1\x09\x71\x98\x73\x62\x7f\x99\x4b\x65\xa7\x71\x3a\x48\x82\xed\x3d\xfb\xb1\x3b\x14&quot;</span>;
         <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x19\x2a\x17\x95\x3f\x58\x6d\x80\x93\xcd\xf7\x78\xd7\x31\x94\xfe\x63\x85\xf4\xee\xd0\xc7\xbe\x56\xa6\xfe\xd6\x0e\xf5\xf4\xcb\x60&quot;</span>;
