@@ -14,4 +14,5 @@ readme        = "README.md"
 keywords = [ "crypto", "cryptography", "security", "socket", "transport" ]
 
 [dependencies]
-libc = '~0.1'
+libc    = '~0.1'
+secrets = '~0.11'

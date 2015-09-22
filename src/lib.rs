@@ -14,3 +14,11 @@
 #![warn(variant_size_differences)]
 
 extern crate libc;
+extern crate secrets;
+
+mod param;
+mod sodium;
+
+pub fn init() {
+    sodium::init()
+}
