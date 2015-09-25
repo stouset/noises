@@ -3,10 +3,12 @@ pub use super::{Cipher, Key, Nonce, Digest};
 use sodium;
 
 use std::cell::RefCell;
+use std::mem;
 
 use secrets::Secret;
 
 pub struct ChaChaPoly {
+    hash_state: RefCell<Secret<sodium::hash_sha256_state>>,
     hmac_state: RefCell<Secret<sodium::auth_hmacsha256_state>>,
 }
 
@@ -14,6 +16,7 @@ pub struct ChaChaPoly {
 impl ChaChaPoly {
     fn new() -> Self {
         ChaChaPoly {
+            hash_state: RefCell::new(unsafe { Secret::uninitialized() }),
             hmac_state: RefCell::new(unsafe { Secret::uninitialized() }),
         }
     }
@@ -21,6 +24,16 @@ impl ChaChaPoly {
 
 #[allow(unsafe_code)]
 impl Cipher for ChaChaPoly {
+    fn hash(&self, data: &[u8]) -> Digest {
+        let mut out     = unsafe { mem::uninitialized() };
+        let mut state   = self.hash_state.borrow_mut();
+        let     state_w = &mut state     .borrow_mut();
+
+        sodium::hash_sha256(state_w, &mut out, data);
+
+        out
+    }
+
     fn hmac_hash(&self, key: &Key, data: &[u8]) -> Key {
         let mut state   = self.hmac_state.borrow_mut();
         let     state_w = &mut state     .borrow_mut();
@@ -35,6 +48,14 @@ impl Cipher for ChaChaPoly {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn test_vector_hash_1() {
+        let data   = b"abc";
+        let vector = b"\xba\x78\x16\xbf\x8f\x01\xcf\xea\x41\x41\x40\xde\x5d\xae\x22\x23\xb0\x03\x61\xa3\x96\x17\x7a\x9c\xb4\x10\xff\x61\xf2\x00\x15\xad";
+
+        test_vector_hash(data, vector);
+    }
 
     #[test]
     fn test_vector_hmac_hash_1() {
@@ -97,6 +118,12 @@ mod tests {
         let     vector =  b"\x9b\x09\xff\xa7\x1b\x94\x2f\xcb\x27\x63\x5f\xbc\xd5\xb0\xe9\x44\xbf\xdc\x63\x64\x4f\x07\x13\x93\x8a\x7f\x51\x53\x5c\x3a\x35\xe2";
 
         test_vector_hmac_hash(&mut key, data, vector);
+    }
+
+    fn test_vector_hash(data: &[u8], vector: &[u8; 32]) {
+        let result = ChaChaPoly::new().hash(data);
+
+        assert_eq!(*vector, result);
     }
 
     fn test_vector_hmac_hash(key: &mut [u8; 32], data: &[u8], vector: &[u8; 32]) {

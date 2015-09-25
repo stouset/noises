@@ -25,4 +25,8 @@ extern {
     pub fn crypto_auth_hmacsha256_init(state: *mut crypto_auth_hmacsha256_state, key: *const u8, len: size_t);
     pub fn crypto_auth_hmacsha256_update(state: *mut crypto_auth_hmacsha256_state, data: *const u8, len: size_t);
     pub fn crypto_auth_hmacsha256_final(state: *mut crypto_auth_hmacsha256_state, out: *mut u8);
+
+    pub fn crypto_hash_sha256_init(state: *mut crypto_hash_sha256_state);
+    pub fn crypto_hash_sha256_update(state: *mut crypto_hash_sha256_state, data: *const u8, len: size_t);
+    pub fn crypto_hash_sha256_final(state: *mut crypto_hash_sha256_state, out: *mut u8);
 }
