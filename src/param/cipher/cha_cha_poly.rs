@@ -2,19 +2,32 @@ pub use super::{Cipher, Key, Nonce, Digest};
 
 use sodium;
 
-pub struct ChaChaPoly;
+use std::cell::RefCell;
 
+use secrets::Secret;
+
+pub struct ChaChaPoly {
+    hmac_state: RefCell<Secret<sodium::auth_hmacsha256_state>>,
+}
+
+#[allow(unsafe_code)]
+impl ChaChaPoly {
+    fn new() -> Self {
+        ChaChaPoly {
+            hmac_state: RefCell::new(unsafe { Secret::uninitialized() }),
+        }
+    }
+}
+
+#[allow(unsafe_code)]
 impl Cipher for ChaChaPoly {
-    #[allow(unsafe_code)]
-    fn hmac_hash(key: &Key, data: &[u8]) -> Key {
+    fn hmac_hash(&self, key: &Key, data: &[u8]) -> Key {
+        let mut state   = self.hmac_state.borrow_mut();
+        let     state_w = &mut state     .borrow_mut();
+        let     key_r   = &    key       .borrow()[..];
+
         unsafe {
-            Key::new(|out| {
-                sodium::auth_hmacsha256(
-                    &key.borrow()[..],
-                    data,
-                    out,
-                );
-            })
+            Key::new(|out_w| sodium::auth_hmacsha256(state_w, out_w, key_r, data))
         }
     }
 }
@@ -88,7 +101,7 @@ mod tests {
 
     fn test_vector_hmac_hash(key: &mut [u8; 32], data: &[u8], vector: &[u8; 32]) {
         let key    = Key::from(key);
-        let result = ChaChaPoly::hmac_hash(&key, data);
+        let result = ChaChaPoly::new().hmac_hash(&key, data);
 
         assert_eq!(*vector, *result.borrow());
     }

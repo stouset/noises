@@ -13,5 +13,5 @@ pub trait Cipher {
     // fn decrypt(key: &Key, nonce: &Nonce, ad: &[u8], ciphertext: &[u8])          -> SecretVec<u8>;
     // fn getkey(key: &Key, nonce: &Nonce) -> Key;
     // fn hash(data: &[u8]) -> Digest;
-    fn hmac_hash(key: &Key, data: &[u8]) -> Key;
+    fn hmac_hash(&self, key: &Key, data: &[u8]) -> Key;
 }
