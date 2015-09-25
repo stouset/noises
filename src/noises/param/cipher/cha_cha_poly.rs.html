@@ -40,83 +40,185 @@
         </form>
     </nav>
 
-    <section id='main' class="content source"><pre class="line-numbers"><span id="1"> 1</span>
-<span id="2"> 2</span>
-<span id="3"> 3</span>
-<span id="4"> 4</span>
-<span id="5"> 5</span>
-<span id="6"> 6</span>
-<span id="7"> 7</span>
-<span id="8"> 8</span>
-<span id="9"> 9</span>
-<span id="10">10</span>
-<span id="11">11</span>
-<span id="12">12</span>
-<span id="13">13</span>
-<span id="14">14</span>
-<span id="15">15</span>
-<span id="16">16</span>
-<span id="17">17</span>
-<span id="18">18</span>
-<span id="19">19</span>
-<span id="20">20</span>
-<span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
-<span id="29">29</span>
-<span id="30">30</span>
-<span id="31">31</span>
-<span id="32">32</span>
-<span id="33">33</span>
-<span id="34">34</span>
-<span id="35">35</span>
-<span id="36">36</span>
-<span id="37">37</span>
-<span id="38">38</span>
-<span id="39">39</span>
-<span id="40">40</span>
-<span id="41">41</span>
-<span id="42">42</span>
-<span id="43">43</span>
-<span id="44">44</span>
-<span id="45">45</span>
-<span id="46">46</span>
-<span id="47">47</span>
-<span id="48">48</span>
-<span id="49">49</span>
-<span id="50">50</span>
-<span id="51">51</span>
-<span id="52">52</span>
-<span id="53">53</span>
-<span id="54">54</span>
-<span id="55">55</span>
-<span id="56">56</span>
-<span id="57">57</span>
-<span id="58">58</span>
-<span id="59">59</span>
+    <section id='main' class="content source"><pre class="line-numbers"><span id="1">  1</span>
+<span id="2">  2</span>
+<span id="3">  3</span>
+<span id="4">  4</span>
+<span id="5">  5</span>
+<span id="6">  6</span>
+<span id="7">  7</span>
+<span id="8">  8</span>
+<span id="9">  9</span>
+<span id="10"> 10</span>
+<span id="11"> 11</span>
+<span id="12"> 12</span>
+<span id="13"> 13</span>
+<span id="14"> 14</span>
+<span id="15"> 15</span>
+<span id="16"> 16</span>
+<span id="17"> 17</span>
+<span id="18"> 18</span>
+<span id="19"> 19</span>
+<span id="20"> 20</span>
+<span id="21"> 21</span>
+<span id="22"> 22</span>
+<span id="23"> 23</span>
+<span id="24"> 24</span>
+<span id="25"> 25</span>
+<span id="26"> 26</span>
+<span id="27"> 27</span>
+<span id="28"> 28</span>
+<span id="29"> 29</span>
+<span id="30"> 30</span>
+<span id="31"> 31</span>
+<span id="32"> 32</span>
+<span id="33"> 33</span>
+<span id="34"> 34</span>
+<span id="35"> 35</span>
+<span id="36"> 36</span>
+<span id="37"> 37</span>
+<span id="38"> 38</span>
+<span id="39"> 39</span>
+<span id="40"> 40</span>
+<span id="41"> 41</span>
+<span id="42"> 42</span>
+<span id="43"> 43</span>
+<span id="44"> 44</span>
+<span id="45"> 45</span>
+<span id="46"> 46</span>
+<span id="47"> 47</span>
+<span id="48"> 48</span>
+<span id="49"> 49</span>
+<span id="50"> 50</span>
+<span id="51"> 51</span>
+<span id="52"> 52</span>
+<span id="53"> 53</span>
+<span id="54"> 54</span>
+<span id="55"> 55</span>
+<span id="56"> 56</span>
+<span id="57"> 57</span>
+<span id="58"> 58</span>
+<span id="59"> 59</span>
+<span id="60"> 60</span>
+<span id="61"> 61</span>
+<span id="62"> 62</span>
+<span id="63"> 63</span>
+<span id="64"> 64</span>
+<span id="65"> 65</span>
+<span id="66"> 66</span>
+<span id="67"> 67</span>
+<span id="68"> 68</span>
+<span id="69"> 69</span>
+<span id="70"> 70</span>
+<span id="71"> 71</span>
+<span id="72"> 72</span>
+<span id="73"> 73</span>
+<span id="74"> 74</span>
+<span id="75"> 75</span>
+<span id="76"> 76</span>
+<span id="77"> 77</span>
+<span id="78"> 78</span>
+<span id="79"> 79</span>
+<span id="80"> 80</span>
+<span id="81"> 81</span>
+<span id="82"> 82</span>
+<span id="83"> 83</span>
+<span id="84"> 84</span>
+<span id="85"> 85</span>
+<span id="86"> 86</span>
+<span id="87"> 87</span>
+<span id="88"> 88</span>
+<span id="89"> 89</span>
+<span id="90"> 90</span>
+<span id="91"> 91</span>
+<span id="92"> 92</span>
+<span id="93"> 93</span>
+<span id="94"> 94</span>
+<span id="95"> 95</span>
+<span id="96"> 96</span>
+<span id="97"> 97</span>
+<span id="98"> 98</span>
+<span id="99"> 99</span>
+<span id="100">100</span>
+<span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
+<span id="107">107</span>
+<span id="108">108</span>
+<span id="109">109</span>
+<span id="110">110</span>
+<span id="111">111</span>
+<span id="112">112</span>
+<span id="113">113</span>
+<span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
+<span id="118">118</span>
+<span id="119">119</span>
+<span id="120">120</span>
+<span id="121">121</span>
+<span id="122">122</span>
+<span id="123">123</span>
+<span id="124">124</span>
+<span id="125">125</span>
+<span id="126">126</span>
+<span id="127">127</span>
+<span id="128">128</span>
+<span id="129">129</span>
+<span id="130">130</span>
+<span id="131">131</span>
+<span id="132">132</span>
+<span id="133">133</span>
+<span id="134">134</span>
+<span id="135">135</span>
 </pre><pre class='rust '>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>Cipher</span>, <span class='ident'>Key</span>, <span class='ident'>Nonce</span>, <span class='ident'>Digest</span>};
 
 <span class='kw'>use</span> <span class='ident'>sodium</span>;
 
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ChaChaPoly</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>cell</span>::<span class='ident'>RefCell</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
 
+<span class='kw'>use</span> <span class='ident'>secrets</span>::<span class='ident'>Secret</span>;
+
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ChaChaPoly</span> {
+    <span class='ident'>hash_state</span>: <span class='ident'>RefCell</span><span class='op'>&lt;</span><span class='ident'>Secret</span><span class='op'>&lt;</span><span class='ident'>sodium</span>::<span class='ident'>hash_sha256_state</span><span class='op'>&gt;&gt;</span>,
+    <span class='ident'>hmac_state</span>: <span class='ident'>RefCell</span><span class='op'>&lt;</span><span class='ident'>Secret</span><span class='op'>&lt;</span><span class='ident'>sodium</span>::<span class='ident'>auth_hmacsha256_state</span><span class='op'>&gt;&gt;</span>,
+}
+
+<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unsafe_code</span>)]</span>
+<span class='kw'>impl</span> <span class='ident'>ChaChaPoly</span> {
+    <span class='kw'>fn</span> <span class='ident'>new</span>() <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
+        <span class='ident'>ChaChaPoly</span> {
+            <span class='ident'>hash_state</span>: <span class='ident'>RefCell</span>::<span class='ident'>new</span>(<span class='kw'>unsafe</span> { <span class='ident'>Secret</span>::<span class='ident'>uninitialized</span>() }),
+            <span class='ident'>hmac_state</span>: <span class='ident'>RefCell</span>::<span class='ident'>new</span>(<span class='kw'>unsafe</span> { <span class='ident'>Secret</span>::<span class='ident'>uninitialized</span>() }),
+        }
+    }
+}
+
+<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unsafe_code</span>)]</span>
 <span class='kw'>impl</span> <span class='ident'>Cipher</span> <span class='kw'>for</span> <span class='ident'>ChaChaPoly</span> {
-    <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unsafe_code</span>)]</span>
-    <span class='kw'>fn</span> <span class='ident'>hmac_hash</span>(<span class='ident'>key</span>: <span class='kw-2'>&amp;</span><span class='ident'>Key</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Key</span> {
+    <span class='kw'>fn</span> <span class='ident'>hash</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Digest</span> {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>out</span>     <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>mem</span>::<span class='ident'>uninitialized</span>() };
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>state</span>   <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>hash_state</span>.<span class='ident'>borrow_mut</span>();
+        <span class='kw'>let</span>     <span class='ident'>state_w</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>state</span>     .<span class='ident'>borrow_mut</span>();
+
+        <span class='ident'>sodium</span>::<span class='ident'>hash_sha256</span>(<span class='ident'>state_w</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>out</span>, <span class='ident'>data</span>);
+
+        <span class='ident'>out</span>
+    }
+
+    <span class='kw'>fn</span> <span class='ident'>hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>key</span>: <span class='kw-2'>&amp;</span><span class='ident'>Key</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Key</span> {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>state</span>   <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>hmac_state</span>.<span class='ident'>borrow_mut</span>();
+        <span class='kw'>let</span>     <span class='ident'>state_w</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>state</span>     .<span class='ident'>borrow_mut</span>();
+        <span class='kw'>let</span>     <span class='ident'>key_r</span>   <span class='op'>=</span> <span class='kw-2'>&amp;</span>    <span class='ident'>key</span>       .<span class='ident'>borrow</span>()[..];
+
         <span class='kw'>unsafe</span> {
-            <span class='ident'>Key</span>::<span class='ident'>new</span>(<span class='op'>|</span><span class='ident'>out</span><span class='op'>|</span> {
-                <span class='ident'>sodium</span>::<span class='ident'>auth_hmacsha256</span>(
-                    <span class='kw-2'>&amp;</span><span class='ident'>key</span>.<span class='ident'>borrow</span>()[..],
-                    <span class='ident'>data</span>,
-                    <span class='ident'>out</span>,
-                );
-            })
+            <span class='ident'>Key</span>::<span class='ident'>new</span>(<span class='op'>|</span><span class='ident'>out_w</span><span class='op'>|</span> <span class='ident'>sodium</span>::<span class='ident'>auth_hmacsha256</span>(<span class='ident'>state_w</span>, <span class='ident'>out_w</span>, <span class='ident'>key_r</span>, <span class='ident'>data</span>))
         }
     }
 }
@@ -126,35 +228,85 @@
     <span class='kw'>use</span> <span class='ident'>super</span>::<span class='op'>*</span>;
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hash_1</span>() {
+        <span class='kw'>let</span> <span class='ident'>data</span>   <span class='op'>=</span> <span class='string'>b&quot;abc&quot;</span>;
+        <span class='kw'>let</span> <span class='ident'>vector</span> <span class='op'>=</span> <span class='string'>b&quot;\xba\x78\x16\xbf\x8f\x01\xcf\xea\x41\x41\x40\xde\x5d\xae\x22\x23\xb0\x03\x61\xa3\x96\x17\x7a\x9c\xb4\x10\xff\x61\xf2\x00\x15\xad&quot;</span>;
+
+        <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>, <span class='ident'>vector</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_1</span>() {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
-        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;&quot;</span>;
-        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\xb6\x13\x67\x9a\x08\x14\xd9\xec\x77\x2f\x95\xd7\x78\xc3\x5f\xc5\xff\x16\x97\xc4\x93\x71\x56\x53\xc6\xc7\x12\x14\x42\x92\xc5\xad&quot;</span>;
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x0b\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;Hi There&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\xb0\x34\x4c\x61\xd8\xdb\x38\x53\x5c\xa8\xaf\xce\xaf\x0b\xf1\x2b\x88\x1d\xc2\x00\xc9\x83\x3d\xa7\x26\xe9\x37\x6c\x2e\x32\xcf\xf7&quot;</span>;
 
         <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_2</span>() {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;test\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
-        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;test&quot;</span>;
-        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x88\xcd\x21\x08\xb5\x34\x7d\x97\x3c\xf3\x9c\xdf\x90\x53\xd7\xdd\x42\x70\x48\x76\xd8\xc9\xa9\xbd\x8e\x2d\x16\x82\x59\xd3\xdd\xf7&quot;</span>;
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;Jefe\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;what do ya want for nothing?&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x5b\xdc\xc1\x46\xbf\x60\x75\x4e\x6a\x04\x24\x26\x08\x95\x75\xc7\x5a\x00\x3f\x08\x9d\x27\x39\x83\x9d\xec\x58\xb9\x64\xec\x38\x43&quot;</span>;
 
         <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_3</span>() {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x4f\xc8\x00\x33\x47\xd0\x33\xf5\xd6\x1b\xbd\x88\xab\x78\xcf\xab\x0d\x2f\xe5\x4e\xd6\x85\xd3\x6e\x86\xfa\x76\x3e\x6c\xa0\xf1\x19&quot;</span>;
-        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;\x50\x8d\xa3\x0a\xe2\x28\xc7\x7e\xd5\x90\xec\xc1\x09\x71\x98\x73\x62\x7f\x99\x4b\x65\xa7\x71\x3a\x48\x82\xed\x3d\xfb\xb1\x3b\x14&quot;</span>;
-        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x19\x2a\x17\x95\x3f\x58\x6d\x80\x93\xcd\xf7\x78\xd7\x31\x94\xfe\x63\x85\xf4\xee\xd0\xc7\xbe\x56\xa6\xfe\xd6\x0e\xf5\xf4\xcb\x60&quot;</span>;
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\xaa\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd\xdd&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x77\x3e\xa9\x1e\x36\x80\x0e\x46\x85\x4d\xb8\xeb\xd0\x91\x81\xa7\x29\x59\x09\x8b\x3e\xf8\xc1\x22\xd9\x63\x55\x14\xce\xd5\x65\xfe&quot;</span>;
 
         <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
     }
 
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_4</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd\xcd&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x82\x55\x8a\x38\x9a\x44\x3c\x0e\xa4\xcc\x81\x98\x99\xf2\x08\x3a\x85\xf0\xfa\xa3\xe5\x78\xf8\x07\x7a\x2e\x3f\xf4\x67\x29\x66\x5b&quot;</span>;
+
+        <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_5</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x0c\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;Test With Truncation&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\xa3\xb6\x16\x74\x73\x10\x0e\xe0\x6e\x0c\x79\x6c\x29\x55\x55\x2b\xfa\x6f\x7c\x0a\x6a\x8a\xef\x8b\x93\xf8\x60\xaa\xb0\xcd\x20\xc5&quot;</span>;
+
+        <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_6</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x45\xad\x4b\x37\xc6\xe2\xfc\x0a\x2c\xfc\xc1\xb5\xda\x52\x41\x32\xec\x70\x76\x15\xc2\xca\xe1\xdb\xbc\x43\xc9\x7a\xa5\x21\xdb\x81&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;Test Using Larger Than Block-Size Key - Hash Key First&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x60\xe4\x31\x59\x1e\xe0\xb6\x7f\x0d\x8a\x26\xaa\xcb\xf5\xb7\x7f\x8e\x0b\xc6\x21\x37\x28\xc5\x14\x05\x46\x04\x0f\x0e\xe3\x7f\x54&quot;</span>;
+
+        <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
+    }
+
+    <span class='attribute'>#[<span class='ident'>test</span>]</span>
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash_7</span>() {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='op'>*</span><span class='string'>b&quot;\x45\xad\x4b\x37\xc6\xe2\xfc\x0a\x2c\xfc\xc1\xb5\xda\x52\x41\x32\xec\x70\x76\x15\xc2\xca\xe1\xdb\xbc\x43\xc9\x7a\xa5\x21\xdb\x81&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>data</span>   <span class='op'>=</span>  <span class='string'>b&quot;This is a test using a larger than block-size key and a larger than block-size data. The key needs to be hashed before being used by the HMAC algorithm.&quot;</span>;
+        <span class='kw'>let</span>     <span class='ident'>vector</span> <span class='op'>=</span>  <span class='string'>b&quot;\x9b\x09\xff\xa7\x1b\x94\x2f\xcb\x27\x63\x5f\xbc\xd5\xb0\xe9\x44\xbf\xdc\x63\x64\x4f\x07\x13\x93\x8a\x7f\x51\x53\x5c\x3a\x35\xe2&quot;</span>;
+
+        <span class='ident'>test_vector_hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>key</span>, <span class='ident'>data</span>, <span class='ident'>vector</span>);
+    }
+
+    <span class='kw'>fn</span> <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>vector</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>; <span class='number'>32</span>]) {
+        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>new</span>().<span class='ident'>hash</span>(<span class='ident'>data</span>);
+
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>vector</span>, <span class='ident'>result</span>);
+    }
+
     <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash</span>(<span class='ident'>key</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>; <span class='number'>32</span>], <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>vector</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>; <span class='number'>32</span>]) {
         <span class='kw'>let</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='ident'>Key</span>::<span class='ident'>from</span>(<span class='ident'>key</span>);
-        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='ident'>key</span>, <span class='ident'>data</span>);
+        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>new</span>().<span class='ident'>hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='ident'>key</span>, <span class='ident'>data</span>);
 
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>vector</span>, <span class='op'>*</span><span class='ident'>result</span>.<span class='ident'>borrow</span>());
     }
