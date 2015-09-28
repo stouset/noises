@@ -85,7 +85,6 @@
 <span id="43">43</span>
 <span id="44">44</span>
 <span id="45">45</span>
-<span id="46">46</span>
 </pre><pre class='rust '>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>libc</span>::{<span class='ident'>c_void</span>, <span class='ident'>c_int</span>, <span class='ident'>size_t</span>};
 
@@ -125,9 +124,8 @@
         <span class='ident'>len</span>:  <span class='ident'>size_t</span>
     ) <span class='op'>-&gt;</span> <span class='ident'>c_int</span>;
 
-    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>crypto_stream_chacha20_xor</span>(
-        <span class='ident'>out</span>:     <span class='op'>*</span><span class='kw-2'>mut</span>   <span class='ident'>u8</span>,
-        <span class='ident'>message</span>: <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>u8</span>,
+    <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>crypto_stream_chacha20</span>(
+        <span class='ident'>out</span>:     <span class='op'>*</span><span class='kw-2'>mut</span> <span class='ident'>u8</span>,
         <span class='ident'>len</span>:     <span class='ident'>size_t</span>,
         <span class='ident'>nonce</span>:   <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>u8</span>,
         <span class='ident'>key</span>:     <span class='op'>*</span><span class='kw'>const</span> <span class='ident'>u8</span>,
