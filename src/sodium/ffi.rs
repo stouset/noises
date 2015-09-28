@@ -35,4 +35,12 @@ extern {
         data: *const u8,
         len:  size_t
     ) -> c_int;
+
+    pub fn crypto_stream_chacha20_xor(
+        out:     *mut   u8,
+        message: *const u8,
+        len:     size_t,
+        nonce:   *const u8,
+        key:     *const u8,
+    ) -> c_int;
 }
