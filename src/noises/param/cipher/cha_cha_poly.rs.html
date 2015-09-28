@@ -209,33 +209,6 @@
 <span id="167">167</span>
 <span id="168">168</span>
 <span id="169">169</span>
-<span id="170">170</span>
-<span id="171">171</span>
-<span id="172">172</span>
-<span id="173">173</span>
-<span id="174">174</span>
-<span id="175">175</span>
-<span id="176">176</span>
-<span id="177">177</span>
-<span id="178">178</span>
-<span id="179">179</span>
-<span id="180">180</span>
-<span id="181">181</span>
-<span id="182">182</span>
-<span id="183">183</span>
-<span id="184">184</span>
-<span id="185">185</span>
-<span id="186">186</span>
-<span id="187">187</span>
-<span id="188">188</span>
-<span id="189">189</span>
-<span id="190">190</span>
-<span id="191">191</span>
-<span id="192">192</span>
-<span id="193">193</span>
-<span id="194">194</span>
-<span id="195">195</span>
-<span id="196">196</span>
 </pre><pre class='rust '>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>Cipher</span>, <span class='ident'>Key</span>, <span class='ident'>Nonce</span>, <span class='ident'>Digest</span>};
 
@@ -306,15 +279,6 @@
         <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>.<span class='ident'>as_bytes</span>(), <span class='ident'>vector</span>);
     }
 
-    <span class='comment'>// TODO: https://tools.ietf.org/html/rfc4634#section-8.4</span>
-    <span class='comment'>// #[test]</span>
-    <span class='kw'>fn</span> <span class='ident'>test_vector_hash_5</span>() {
-        <span class='kw'>let</span> <span class='ident'>data</span>   <span class='op'>=</span> <span class='string'>b&quot;&quot;</span>;
-        <span class='kw'>let</span> <span class='ident'>vector</span> <span class='op'>=</span> <span class='string'>b&quot;\xd6\xd3\xe0\x2a\x31\xa8\x4a\x8c\xaa\x97\x18\xed\x6c\x20\x57\xbe\x09\xdb\x45\xe7\x82\x3e\xb5\x07\x9c\xe7\xa5\x73\xa3\x76\x0f\x95&quot;</span>;
-
-        <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>, <span class='ident'>vector</span>);
-    }
-
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_vector_hash_6</span>() {
         <span class='kw'>let</span> <span class='ident'>data</span>   <span class='op'>=</span> <span class='string'>b&quot;\x19&quot;</span>;
@@ -323,28 +287,10 @@
         <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>, <span class='ident'>vector</span>);
     }
 
-    <span class='comment'>// TODO: https://tools.ietf.org/html/rfc4634#section-8.4</span>
-    <span class='comment'>// #[test]</span>
-    <span class='kw'>fn</span> <span class='ident'>test_vector_hash_7</span>() {
-        <span class='kw'>let</span> <span class='ident'>data</span>   <span class='op'>=</span> <span class='string'>b&quot;\xbe\x27\x46\xc6\xdb\x52\x76\x5f\xdb\x2f\x88\x70\x0f\x9a\x73&quot;</span>;
-        <span class='kw'>let</span> <span class='ident'>vector</span> <span class='op'>=</span> <span class='string'>b&quot;\x77\xec\x1d\xc8\x9c\x82\x1f\xf2\xa1\x27\x90\x89\xfa\x09\x1b\x35\xb8\xcd\x96\x0b\xca\xf7\xde\x01\xc6\xa7\x68\x07\x56\xbe\xb9\x72&quot;</span>;
-
-        <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>, <span class='ident'>vector</span>);
-    }
-
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>test_vector_hash_8</span>() {
         <span class='kw'>let</span> <span class='ident'>data</span>   <span class='op'>=</span> <span class='string'>b&quot;\xe3\xd7\x25\x70\xdc\xdd\x78\x7c\xe3\x88\x7a\xb2\xcd\x68\x46\x52&quot;</span>;
         <span class='kw'>let</span> <span class='ident'>vector</span> <span class='op'>=</span> <span class='string'>b&quot;\x17\x5e\xe6\x9b\x02\xba\x9b\x58\xe2\xb0\xa5\xfd\x13\x81\x9c\xea\x57\x3f\x39\x40\xa9\x4f\x82\x51\x28\xcf\x42\x09\xbe\xab\xb4\xe8&quot;</span>;
-
-        <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>, <span class='ident'>vector</span>);
-    }
-
-    <span class='comment'>// TODO: https://tools.ietf.org/html/rfc4634#section-8.4</span>
-    <span class='comment'>// #[test]</span>
-    <span class='kw'>fn</span> <span class='ident'>test_vector_hash_9</span>() {
-        <span class='kw'>let</span> <span class='ident'>data</span>   <span class='op'>=</span> <span class='string'>b&quot;\x3e\x74\x03\x71\xc8\x10\xc2\xb9\x9f\xc0\x4e\x80\x49\x07\xef\x7c\xf2\x6b\xe2\x8b\x57\xcb\x58\xa3\xe2\xf3\xc0\x07\x16\x6e\x49\xc1\x2e\x9b\xa3\x4c\x01\x04\x06\x91\x29\xea\x76\x15\x64\x25\x45\x70\x3a\x2b\xd9\x01\xe1\x6e\xb0\xe0\x5d\xeb\xa0\x14\xeb\xff\x64\x06\xa0\x7d\x54\x36\x4e\xff\x74\x2d\xa7\x79\xb0\xb3&quot;</span>;
-        <span class='kw'>let</span> <span class='ident'>vector</span> <span class='op'>=</span> <span class='string'>b&quot;\x3e\x9a\xd6\x46\x8b\xbb\xad\x2a\xc3\xc2\xcd\xc2\x92\xe0\x18\xba\x5f\xd7\x0b\x96\x0c\xf1\x67\x97\x77\xfc\xe7\x08\xfd\xb0\x66\xe9&quot;</span>;
 
         <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>, <span class='ident'>vector</span>);
     }
