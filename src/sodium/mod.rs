@@ -3,11 +3,11 @@
 
 mod ffi;
 
-pub mod hash_sha256;
-pub mod auth_hmacsha256;
+mod auth_hmacsha256;
+mod hash_sha256;
 
-pub use self::hash_sha256::*;
 pub use self::auth_hmacsha256::*;
+pub use self::hash_sha256::*;
 
 use std::sync::{Once, ONCE_INIT};
 
