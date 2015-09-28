@@ -12,7 +12,7 @@ pub fn stream_chacha20(
     unsafe {
         let _ = crypto_stream_chacha20(
             out  .as_mut_ptr(),
-            out  .len() as size_t,
+            out  .len() as c_ulonglong,
             nonce.as_ptr(),
             key  .as_ptr(),
         );

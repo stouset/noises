@@ -13,7 +13,7 @@ pub fn auth_hmacsha256(
         let _ = crypto_auth_hmacsha256(
             hmac.as_mut_ptr(),
             data.as_ptr(),
-            data.len() as size_t,
+            data.len() as c_ulonglong,
             key .as_ptr(),
         );
     }

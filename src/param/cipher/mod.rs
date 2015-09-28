@@ -3,6 +3,7 @@ use secrets::{Secret, SecretVec};
 mod cha_cha_poly;
 
 pub use self::cha_cha_poly::ChaChaPoly;
+
 pub type Key       = Secret<[u8; 32]>;
 pub type Plaintext = SecretVec<u8>;
 pub type Nonce     = [u8; 8];

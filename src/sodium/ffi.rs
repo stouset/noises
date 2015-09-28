@@ -1,4 +1,4 @@
-pub use libc::{c_void, c_int, size_t};
+pub use libc::{c_void, c_int, c_ulonglong};
 
 use secrets::Zeroable;
 
@@ -25,7 +25,7 @@ extern {
     pub fn crypto_auth_hmacsha256(
         out:  *mut   u8,
         data: *const u8,
-        len: size_t,
+        len:  c_ulonglong,
         key:  *const u8,
     ) -> c_int;
 
@@ -33,12 +33,12 @@ extern {
     pub fn crypto_hash_sha256(
         out:  *mut u8,
         data: *const u8,
-        len:  size_t
+        len:  c_ulonglong,
     ) -> c_int;
 
     pub fn crypto_stream_chacha20(
         out:     *mut u8,
-        len:     size_t,
+        len:     c_ulonglong,
         nonce:   *const u8,
         key:     *const u8,
     ) -> c_int;

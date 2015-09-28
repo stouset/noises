@@ -11,7 +11,7 @@ pub fn hash_sha256(
         let _ = crypto_hash_sha256(
             digest.as_mut_ptr(),
             data  .as_ptr(),
-            data  .len() as size_t,
+            data  .len() as c_ulonglong,
         );
     }
 }
