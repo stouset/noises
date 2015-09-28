@@ -10,7 +10,7 @@ pub fn auth_hmacsha256(
     data:  &    auth_hmacsha256_data,
 ) {
     unsafe {
-        crypto_auth_hmacsha256(
+        let _ = crypto_auth_hmacsha256(
             hmac.as_mut_ptr(),
             data.as_ptr(),
             data.len() as size_t,

@@ -22,6 +22,17 @@ impl Zeroable for crypto_auth_hmacsha256_state {}
 extern {
     pub fn sodium_init() -> c_int;
 
-    pub fn crypto_auth_hmacsha256(out: *mut u8, data: *const u8, len: size_t, key: *const u8);
-    pub fn crypto_hash_sha256(out: *mut u8, data: *const u8, len: size_t);
+    pub fn crypto_auth_hmacsha256(
+        out:  *mut   u8,
+        data: *const u8,
+        len: size_t,
+        key:  *const u8,
+    ) -> c_int;
+
+
+    pub fn crypto_hash_sha256(
+        out:  *mut u8,
+        data: *const u8,
+        len:  size_t
+    ) -> c_int;
 }

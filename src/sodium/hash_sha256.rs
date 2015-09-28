@@ -8,10 +8,10 @@ pub fn hash_sha256(
     data:   &    hash_sha256_data,
 ) {
     unsafe {
-        crypto_hash_sha256(
+        let _ = crypto_hash_sha256(
             digest.as_mut_ptr(),
             data  .as_ptr(),
             data  .len() as size_t,
-        )
+        );
     }
 }
