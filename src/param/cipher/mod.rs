@@ -16,8 +16,8 @@ pub type Digest    = [u8; 32];
 //}
 
 pub trait Cipher {
-    // fn encrypt(key: &Key, nonce: &Nonce, ad: &[u8], plaintext:  &Plaintext) -> Vec<u8>;
-    // fn decrypt(key: &Key, nonce: &Nonce, ad: &[u8], ciphertext: &[u8])      -> Plaintext;
+    fn encrypt(key: &Key, nonce: &Nonce, ad: &[u8], plaintext:  &Plaintext) -> Vec<u8>;
+    fn decrypt(key: &Key, nonce: &Nonce, ad: &[u8], ciphertext: &[u8])      -> Option<Plaintext>;
     fn getkey(key: &Key, nonce: &Nonce) -> Key;
     fn hash(data: &[u8]) -> Digest;
     fn hmac_hash(key: &Key, data: &[u8]) -> Key;

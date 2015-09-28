@@ -1,4 +1,4 @@
-pub use super::{Cipher, Key, Nonce, Digest};
+pub use super::{Cipher, Key, Plaintext, Nonce, Digest};
 
 use sodium;
 
@@ -8,6 +8,39 @@ pub struct ChaChaPoly;
 
 #[allow(unsafe_code)]
 impl Cipher for ChaChaPoly {
+    fn encrypt(key: &Key, nonce: &Nonce, ad: &[u8], plaintext: &Plaintext) -> Vec<u8> {
+        let     len = sodium::aead_chacha20poly1305_ciphertext_len(plaintext.len());
+        let mut out = Vec::with_capacity(len);
+
+        let _ = sodium::aead_chacha20poly1305_encrypt(
+            &mut out,
+            &key.borrow(),
+            nonce,
+            ad,
+            &plaintext.borrow(),
+        );
+
+        out
+    }
+
+    fn decrypt(key: &Key, nonce: &Nonce, ad: &[u8], ciphertext: &[u8]) -> Option<Plaintext> {
+        let     len = sodium::aead_chacha20poly1305_plaintext_len(ciphertext.len());
+        let mut out = unsafe { Plaintext::uninitialized(len) };
+
+        let ret = sodium::aead_chacha20poly1305_decrypt(
+            &mut out.borrow_mut(),
+            &    key.borrow(),
+            nonce,
+            ad,
+            ciphertext,
+        );
+
+        match ret {
+            true  => Some(out),
+            false => None,
+        }
+    }
+
     fn getkey(key: &Key, nonce: &Nonce) -> Key {
         unsafe {
             Key::new(|out| {

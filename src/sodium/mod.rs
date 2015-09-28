@@ -3,10 +3,12 @@
 
 mod ffi;
 
+mod aead_chachapoly1305;
 mod auth_hmacsha256;
 mod hash_sha256;
 mod stream_chacha20;
 
+pub use self::aead_chachapoly1305::*;
 pub use self::auth_hmacsha256::*;
 pub use self::hash_sha256::*;
 pub use self::stream_chacha20::*;
