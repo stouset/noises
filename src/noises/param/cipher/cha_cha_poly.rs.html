@@ -236,66 +236,34 @@
 <span id="194">194</span>
 <span id="195">195</span>
 <span id="196">196</span>
-<span id="197">197</span>
-<span id="198">198</span>
-<span id="199">199</span>
-<span id="200">200</span>
-<span id="201">201</span>
-<span id="202">202</span>
-<span id="203">203</span>
-<span id="204">204</span>
-<span id="205">205</span>
-<span id="206">206</span>
-<span id="207">207</span>
-<span id="208">208</span>
-<span id="209">209</span>
-<span id="210">210</span>
-<span id="211">211</span>
-<span id="212">212</span>
 </pre><pre class='rust '>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>Cipher</span>, <span class='ident'>Key</span>, <span class='ident'>Nonce</span>, <span class='ident'>Digest</span>};
 
 <span class='kw'>use</span> <span class='ident'>sodium</span>;
 
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>cell</span>::<span class='ident'>RefCell</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
 
-<span class='kw'>use</span> <span class='ident'>secrets</span>::<span class='ident'>Secret</span>;
-
-<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ChaChaPoly</span> {
-    <span class='ident'>hash_state</span>: <span class='ident'>RefCell</span><span class='op'>&lt;</span><span class='ident'>Secret</span><span class='op'>&lt;</span><span class='ident'>sodium</span>::<span class='ident'>hash_sha256_state</span><span class='op'>&gt;&gt;</span>,
-    <span class='ident'>hmac_state</span>: <span class='ident'>RefCell</span><span class='op'>&lt;</span><span class='ident'>Secret</span><span class='op'>&lt;</span><span class='ident'>sodium</span>::<span class='ident'>auth_hmacsha256_state</span><span class='op'>&gt;&gt;</span>,
-}
-
-<span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unsafe_code</span>)]</span>
-<span class='kw'>impl</span> <span class='ident'>ChaChaPoly</span> {
-    <span class='kw'>fn</span> <span class='ident'>new</span>() <span class='op'>-&gt;</span> <span class='kw'>Self</span> {
-        <span class='ident'>ChaChaPoly</span> {
-            <span class='ident'>hash_state</span>: <span class='ident'>RefCell</span>::<span class='ident'>new</span>(<span class='kw'>unsafe</span> { <span class='ident'>Secret</span>::<span class='ident'>uninitialized</span>() }),
-            <span class='ident'>hmac_state</span>: <span class='ident'>RefCell</span>::<span class='ident'>new</span>(<span class='kw'>unsafe</span> { <span class='ident'>Secret</span>::<span class='ident'>uninitialized</span>() }),
-        }
-    }
-}
+<span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>ChaChaPoly</span>;
 
 <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unsafe_code</span>)]</span>
 <span class='kw'>impl</span> <span class='ident'>Cipher</span> <span class='kw'>for</span> <span class='ident'>ChaChaPoly</span> {
-    <span class='kw'>fn</span> <span class='ident'>hash</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Digest</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>out</span>     <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>mem</span>::<span class='ident'>uninitialized</span>() };
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>state</span>   <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>hash_state</span>.<span class='ident'>borrow_mut</span>();
-        <span class='kw'>let</span>     <span class='ident'>state_w</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>state</span>     .<span class='ident'>borrow_mut</span>();
+    <span class='kw'>fn</span> <span class='ident'>hash</span>(<span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Digest</span> {
+        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>out</span> <span class='op'>=</span> <span class='kw'>unsafe</span> { <span class='ident'>mem</span>::<span class='ident'>uninitialized</span>() };
 
-        <span class='ident'>sodium</span>::<span class='ident'>hash_sha256</span>(<span class='ident'>state_w</span>, <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>out</span>, <span class='ident'>data</span>);
+        <span class='ident'>sodium</span>::<span class='ident'>hash_sha256</span>(<span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>out</span>, <span class='ident'>data</span>);
 
         <span class='ident'>out</span>
     }
 
-    <span class='kw'>fn</span> <span class='ident'>hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>key</span>: <span class='kw-2'>&amp;</span><span class='ident'>Key</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Key</span> {
-        <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>state</span>   <span class='op'>=</span> <span class='self'>self</span>.<span class='ident'>hmac_state</span>.<span class='ident'>borrow_mut</span>();
-        <span class='kw'>let</span>     <span class='ident'>state_w</span> <span class='op'>=</span> <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> <span class='ident'>state</span>     .<span class='ident'>borrow_mut</span>();
-        <span class='kw'>let</span>     <span class='ident'>key_r</span>   <span class='op'>=</span> <span class='kw-2'>&amp;</span>    <span class='ident'>key</span>       .<span class='ident'>borrow</span>()[..];
-
+    <span class='kw'>fn</span> <span class='ident'>hmac_hash</span>(<span class='ident'>key</span>: <span class='kw-2'>&amp;</span><span class='ident'>Key</span>, <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>]) <span class='op'>-&gt;</span> <span class='ident'>Key</span> {
         <span class='kw'>unsafe</span> {
-            <span class='ident'>Key</span>::<span class='ident'>new</span>(<span class='op'>|</span><span class='ident'>out_w</span><span class='op'>|</span> <span class='ident'>sodium</span>::<span class='ident'>auth_hmacsha256</span>(<span class='ident'>state_w</span>, <span class='ident'>out_w</span>, <span class='ident'>key_r</span>, <span class='ident'>data</span>))
+            <span class='ident'>Key</span>::<span class='ident'>new</span>(<span class='op'>|</span><span class='ident'>out</span><span class='op'>|</span> {
+                <span class='ident'>sodium</span>::<span class='ident'>auth_hmacsha256</span>(
+                    <span class='ident'>out</span>,
+                    <span class='ident'>key</span>.<span class='ident'>borrow</span>().<span class='ident'>as_ref</span>(),
+                    <span class='ident'>data</span>,
+                );
+            })
         }
     }
 }
@@ -453,14 +421,14 @@
     }
 
     <span class='kw'>fn</span> <span class='ident'>test_vector_hash</span>(<span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>vector</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>; <span class='number'>32</span>]) {
-        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>new</span>().<span class='ident'>hash</span>(<span class='ident'>data</span>);
+        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>hash</span>(<span class='ident'>data</span>);
 
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>vector</span>, <span class='ident'>result</span>);
     }
 
     <span class='kw'>fn</span> <span class='ident'>test_vector_hmac_hash</span>(<span class='ident'>key</span>: <span class='kw-2'>&amp;</span><span class='kw-2'>mut</span> [<span class='ident'>u8</span>; <span class='number'>32</span>], <span class='ident'>data</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>], <span class='ident'>vector</span>: <span class='kw-2'>&amp;</span>[<span class='ident'>u8</span>; <span class='number'>32</span>]) {
         <span class='kw'>let</span> <span class='ident'>key</span>    <span class='op'>=</span> <span class='ident'>Key</span>::<span class='ident'>from</span>(<span class='ident'>key</span>);
-        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>new</span>().<span class='ident'>hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='ident'>key</span>, <span class='ident'>data</span>);
+        <span class='kw'>let</span> <span class='ident'>result</span> <span class='op'>=</span> <span class='ident'>ChaChaPoly</span>::<span class='ident'>hmac_hash</span>(<span class='kw-2'>&amp;</span><span class='ident'>key</span>, <span class='ident'>data</span>);
 
         <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='op'>*</span><span class='ident'>vector</span>, <span class='op'>*</span><span class='ident'>result</span>.<span class='ident'>borrow</span>());
     }
