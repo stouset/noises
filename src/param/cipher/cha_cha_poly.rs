@@ -9,15 +9,12 @@ pub struct ChaChaPoly;
 #[allow(unsafe_code)]
 impl Cipher for ChaChaPoly {
     fn getkey(key: &Key, nonce: &Nonce) -> Key {
-        let plaintext = { static P : [u8; 32] = [0; 32]; &P };
-
         unsafe {
             Key::new(|out| {
-                sodium::stream_chacha20_xor(
+                sodium::stream_chacha20(
                     out,
                     &key.borrow(),
                     nonce,
-                    plaintext,
                 );
             })
         }
