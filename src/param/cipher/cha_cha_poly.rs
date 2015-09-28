@@ -2,45 +2,29 @@ pub use super::{Cipher, Key, Nonce, Digest};
 
 use sodium;
 
-use std::cell::RefCell;
 use std::mem;
 
-use secrets::Secret;
-
-pub struct ChaChaPoly {
-    hash_state: RefCell<Secret<sodium::hash_sha256_state>>,
-    hmac_state: RefCell<Secret<sodium::auth_hmacsha256_state>>,
-}
-
-#[allow(unsafe_code)]
-impl ChaChaPoly {
-    fn new() -> Self {
-        ChaChaPoly {
-            hash_state: RefCell::new(unsafe { Secret::uninitialized() }),
-            hmac_state: RefCell::new(unsafe { Secret::uninitialized() }),
-        }
-    }
-}
+pub struct ChaChaPoly;
 
 #[allow(unsafe_code)]
 impl Cipher for ChaChaPoly {
-    fn hash(&self, data: &[u8]) -> Digest {
-        let mut out     = unsafe { mem::uninitialized() };
-        let mut state   = self.hash_state.borrow_mut();
-        let     state_w = &mut state     .borrow_mut();
+    fn hash(data: &[u8]) -> Digest {
+        let mut out = unsafe { mem::uninitialized() };
 
-        sodium::hash_sha256(state_w, &mut out, data);
+        sodium::hash_sha256(&mut out, data);
 
         out
     }
 
-    fn hmac_hash(&self, key: &Key, data: &[u8]) -> Key {
-        let mut state   = self.hmac_state.borrow_mut();
-        let     state_w = &mut state     .borrow_mut();
-        let     key_r   = &    key       .borrow()[..];
-
+    fn hmac_hash(key: &Key, data: &[u8]) -> Key {
         unsafe {
-            Key::new(|out_w| sodium::auth_hmacsha256(state_w, out_w, key_r, data))
+            Key::new(|out| {
+                sodium::auth_hmacsha256(
+                    out,
+                    key.borrow().as_ref(),
+                    data,
+                );
+            })
         }
     }
 }
@@ -198,14 +182,14 @@ mod tests {
     }
 
     fn test_vector_hash(data: &[u8], vector: &[u8; 32]) {
-        let result = ChaChaPoly::new().hash(data);
+        let result = ChaChaPoly::hash(data);
 
         assert_eq!(*vector, result);
     }
 
     fn test_vector_hmac_hash(key: &mut [u8; 32], data: &[u8], vector: &[u8; 32]) {
         let key    = Key::from(key);
-        let result = ChaChaPoly::new().hmac_hash(&key, data);
+        let result = ChaChaPoly::hmac_hash(&key, data);
 
         assert_eq!(*vector, *result.borrow());
     }
