@@ -1,12 +1,29 @@
 language: rust
 sudo:     false
 
+rust:
+  - nightly
+  - beta
+  - stable
+
+matrix:
+  allow_failures:
+    - rust: nightly
+
 addons:
   apt:
     sources:
       - debian-sid
     packages:
       - libsodium-dev
+
+before_script: |
+  [ $TRAVIS_RUST_VERSION = "nightly" ] && export TEST_FLAGS="--features clippy" || true
+
+script:
+  - cargo build --verbose
+  - cargo test  --verbose $TEST_FLAGS
+  - cargo bench --verbose
 
 after_success: |
   [ $TRAVIS_BRANCH       = master ] &&
