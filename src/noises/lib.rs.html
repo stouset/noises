@@ -68,6 +68,11 @@
 <span id="26">26</span>
 <span id="27">27</span>
 <span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! Implementation of Trevor Perrin&#39;s Noise protocol[1].</span>
 <span class='doccomment'>//!</span>
@@ -87,6 +92,11 @@
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>warn</span>(<span class='ident'>unused_qualifications</span>)]</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>warn</span>(<span class='ident'>unused_results</span>)]</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>warn</span>(<span class='ident'>variant_size_differences</span>)]</span>
+
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span><span class='op'>=</span><span class='string'>&quot;clippy&quot;</span>, <span class='ident'>allow</span>(<span class='ident'>unstable_features</span>))]</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span><span class='op'>=</span><span class='string'>&quot;clippy&quot;</span>, <span class='ident'>feature</span>(<span class='ident'>plugin</span>))]</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span><span class='op'>=</span><span class='string'>&quot;clippy&quot;</span>, <span class='ident'>plugin</span>(<span class='ident'>clippy</span>))]</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>cfg_attr</span>(<span class='ident'>feature</span><span class='op'>=</span><span class='string'>&quot;clippy&quot;</span>, <span class='ident'>warn</span>(<span class='ident'>clippy</span>))]</span>
 
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>libc</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>secrets</span>;
