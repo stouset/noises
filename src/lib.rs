@@ -1,3 +1,7 @@
+//! Implementation of Trevor Perrin's Noise protocol[1].
+//!
+//! [1]: https://github.com/trevp/noise/blob/master/noise.md
+
 #![warn(box_pointers)]
 #![warn(fat_ptr_transmutes)]
 #![warn(missing_copy_implementations)]

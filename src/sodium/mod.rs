@@ -1,3 +1,4 @@
+// This comment prevents Emacs from thinking this file is executable
 #![allow(unsafe_code)]
 #![allow(non_camel_case_types)]
 
