@@ -17,6 +17,11 @@
 #![warn(unused_results)]
 #![warn(variant_size_differences)]
 
+#![cfg_attr(feature="clippy", allow(unstable_features))]
+#![cfg_attr(feature="clippy", feature(plugin))]
+#![cfg_attr(feature="clippy", plugin(clippy))]
+#![cfg_attr(feature="clippy", warn(clippy))]
+
 extern crate libc;
 extern crate secrets;
 

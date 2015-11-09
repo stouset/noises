@@ -14,5 +14,9 @@ readme        = "README.md"
 keywords = [ "crypto", "cryptography", "security", "socket", "transport" ]
 
 [dependencies]
+clippy  = { version = "0.0.22", optional = true }
 libc    = '~0.1'
 secrets = '~0.11.1'
+
+[features]
+default = []
