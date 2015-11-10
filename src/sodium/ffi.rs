@@ -55,9 +55,20 @@ extern {
 
 
     pub fn crypto_hash_sha256(
-        out:  *mut u8,
+        out:  *mut   u8,
         data: *const u8,
         len:  c_ulonglong,
+    ) -> c_int;
+
+    pub fn crypto_scalarmult_curve25519(
+        out:     *mut   u8,
+        public:  *const u8,
+        private: *const u8,
+    ) -> c_int;
+
+    pub fn crypto_scalarmult_curve25519_base(
+        out:     *mut   u8,
+        private: *const u8,
     ) -> c_int;
 
     pub fn crypto_stream_chacha20(

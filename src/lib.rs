@@ -22,6 +22,9 @@
 #![cfg_attr(feature="clippy", plugin(clippy))]
 #![cfg_attr(feature="clippy", warn(clippy))]
 
+#![feature(associated_consts)]
+#![feature(associated_type_defaults)]
+
 extern crate libc;
 extern crate secrets;
 
