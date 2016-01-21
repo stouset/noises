@@ -20,12 +20,14 @@ Documentation
 License
 -------
 
-`noises` is distributed under the [MIT license][license].
+`noises` is distributed under either of the [MIT License][license-mit]
+or [Apache License, Version 2.0][license-apache] at your option.
 
-[ci]:      https://travis-ci.org/stouset/noises
-[docs]:    https://stouset.github.io/noises
-[license]: https://github.com/stouset/noise/blob/master/LICENSE
-[package]: https://crates.io/crates/noises
+[ci]:             https://travis-ci.org/stouset/noises
+[docs]:           https://stouset.github.io/noises
+[license-mit]:    https://github.com/stouset/noise/blob/master/LICENSE-MIT
+[license-apache]: https://github.com/stouset/noise/blob/master/LICENSE-APACHE
+[package]:        https://crates.io/crates/noises
 
 [badge-ci]:      https://img.shields.io/travis/stouset/noises.svg
 [badge-license]: https://img.shields.io/crates/l/noises.svg

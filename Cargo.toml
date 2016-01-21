@@ -1,7 +1,7 @@
 [package]
 name    = "noises"
 version = "0.0.0"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 
 authors     = ["Stephen Touset <stephen@touset.org>"]
 description = "Implementation of Trevor Perrin's noise protocol framework"
